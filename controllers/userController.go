@@ -73,7 +73,7 @@ func EditUserController(c echo.Context) error {
 
 	c.Bind(&user)
 
-	users, err := database.EditUser(id, user.Name, user.Email, user.Password)
+	users, err := database.EditUser(id, &user)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 
